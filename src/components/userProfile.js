@@ -1,19 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./styles.css";
+import {useParams} from "react-router-dom"
 
 const UserProfile = () => {
   const [gitUserData, setGitUserData] = useState({});
+  const {username} =useParams();
 
   useEffect(() => {
     const getGitUser = async () => {
-      const response = await axios.get(`https://api.github.com/users/Kolosafo`);
+      const response = await axios.get(`https://api.github.com/users/${username}`);
       console.log("USER IS HERE", response.data);
       setGitUserData(response.data);
       return response.data;
     };
     getGitUser().catch((e) => console.error(e));
-  }, []);
+  }, [username]);
   return (
     <div className="user-profile-main-cont">
       <div className="top-cont">
@@ -36,7 +38,7 @@ const UserProfile = () => {
             className="view-ongit-a"
             href={gitUserData.html_url}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             View on GitHub
           </a>

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -46,7 +46,7 @@ const RepoDetail = () => {
                   className="view-ongit-a"
                   href={gitRepoData.html_url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer" 
                 >
                   View on GitHub
                 </a>

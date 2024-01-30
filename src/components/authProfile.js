@@ -14,7 +14,7 @@ const AuthProfile = ({ username }) => {
       return response.data;
     };
     getGitUser().catch((e) => console.error(e));
-  }, []);
+  }, [username]);
   return (
     <div className="user-profile-main-cont">
       <h2 style={{ marginTop: "40px", marginBottom: "20px" }}>YOUR PROFILE</h2>
@@ -47,8 +47,7 @@ const AuthProfile = ({ username }) => {
             className="view-ongit-a"
             href={gitUserData.html_url}
             target="_blank"
-            rel="noreferrer"
-          >
+            rel="noopener noreferrer"          >
             View on GitHub
           </a>
         </div>
